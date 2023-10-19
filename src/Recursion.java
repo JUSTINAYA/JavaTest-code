@@ -2,7 +2,43 @@ public class Recursion {
     public static void main(String[] args) {
         T t1 = new T();
 //        System.out.println(t1.fibonacci(7));
-        System.out.println(t1.peach(8));
+
+//        System.out.println(t1.peach(8));
+
+        /*
+        int[][] map = new int[8][7];
+        for (int i = 0; i < map[i].length; i++) {
+            map[0][i] = 1;
+            map[7][i] = 1;
+        }
+        for (int i = 0; i < map.length; i++) {
+            map[i][0] = 1;
+            map[i][6] = 1;
+        }
+        map[3][1] = 1;
+        map[3][2] = 1;
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                System.out.print(map[i][j] + " ");
+            }
+            System.out.println();
+        }
+        t1.findWay(map, 1, 1);
+        System.out.println();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                System.out.print(map[i][j] + " ");
+            }
+            System.out.println();
+        }
+        */
+
+
+//        t1.hanoiTower(3 , 'A', 'B', 'C');
+
+
+
+
     }
 }
 
@@ -28,6 +64,46 @@ class T {
             System.out.println("day in 1-10");
             return -1;
         }
+    }
+
+    //迷宫问题
+    public boolean findWay(int[][] map, int i, int j) {
+        if (map[6][5] == 2) {
+            return true;
+        } else {
+            if (map[i][j] == 0) {
+                map[i][j] = 2;
+                if (findWay(map, i + 1, j)) {//down
+                    return true;
+                } else if (findWay(map, i, j + 1)) {//right
+                    return true;
+                } else if (findWay(map, i - 1, j)) {//up
+                    return true;
+                } else if (findWay(map, i, j - 1)) {//left
+                    return true;
+                } else {
+                    map[i][j] = 3;
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    //汉诺塔
+    //num表示要移动的个数，abc分别表示A塔，B塔，C塔
+    public void hanoiTower(int num, char a, char b, char c) {
+        if (num == 1) {
+            System.out.println(a + "->" + c);
+        } else {
+            //a to b ,use c
+            hanoiTower(num - 1, a, c, b);
+            System.out.println(a + "->" + c);
+            //b to c ,use a
+            hanoiTower(num - 1, b, a, c);
+
+        }
+
     }
 
 
