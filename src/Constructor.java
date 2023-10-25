@@ -1,6 +1,3 @@
-import javax.script.ScriptContext;
-import java.util.Scanner;
-
 public class Constructor {
     public static void main(String[] args) {
         Person p1 = new Person("justin", 21);
