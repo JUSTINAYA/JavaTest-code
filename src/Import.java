@@ -20,10 +20,8 @@ public class Import {
             System.out.print(arr[i] + " ");
         }*/
 
-        Arrays.sort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
 
-        }
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
