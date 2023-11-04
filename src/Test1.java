@@ -2,7 +2,7 @@ public class Test1 {
     public static void main(String[] args) {
         test t = new test();
 
-        System.out.println(t.score("cx",100,100,100));
+        System.out.println(t.score("cx", 100, 100, 100));
 
     }
 }
